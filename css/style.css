@@ -1,0 +1,10 @@
+@charset "utf8";
+
+body {
+    
+}
+
+.fundo-fixo {
+    background: url(../images/fundo.jpg) no-repeat fixed center;
+    -webkit-background-size: cover;
+}
