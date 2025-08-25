@@ -1,13 +1,18 @@
 @charset "utf8";
 
 .fundo-fixo {
+    /* background-color: #f2f2f2;*/
     background: url(../images/fundo.jpg) no-repeat fixed center;
-    -webkit-background-size: cover;
+    -webkit-background-size: cover; 
 }
 
 main {
     padding-top: 80px;
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
+}
+
+footer {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
 }

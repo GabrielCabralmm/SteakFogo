@@ -7,67 +7,112 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/bootstrap.min.js" defer></script>
+    <script src="./js/bootstrap.bundle.min.js" defer></script>
     <title>Steak & Fogo</title>
 </head>
 <body class="fundo-fixo">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <div class="container-fluid">
-            <a href="index.html" class="navbar-brand">
-                <img src="./images/logo/Logo-200-40-Escuro.png" alt="Logotipo Steak & Fogo" width="190px">
-            </a>
-            <button 
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menupublico"
-            aria-controls="menupublico"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menupublico">
-                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active" aria-current="page">
-                            <i class="bi bi-house-door-fill"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Destaques</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Produtos</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipos</a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a href="#" class="dropdown-item">Churrascos</a></li>
-                            <li><a href="#" class="dropdown-item">Bebidas</a></li>
-                            <li><a href="#" class="dropdown-item">Sobremesas</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contato" class="nav-link me-2">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <form class="d-flex" role="search">
-                            <input type="search" class="form-control form-control-sm me-2" placeholder="Buscar" aria-label="Search" required>
-                            <button class="btn btn-dark"><i class="bi bi-search"></i></button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="bi bi-person-fill"></i>&nbsp;Admin/Cliente
-                        </a>
-                    </li>
-                </ul>
+    <header class="header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">
+                    <img src="./images/logo/Logo-200-40-Escuro.png" alt="Logotipo Steak & Fogo" width="190px">
+                </a>
+                <button 
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menupublico"
+                aria-controls="menupublico"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menupublico">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active" aria-current="page">
+                                <i class="bi bi-house-door-fill"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Destaques</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Produtos</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipos</a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a href="#" class="dropdown-item">Churrascos</a></li>
+                                <li><a href="#" class="dropdown-item">Bebidas</a></li>
+                                <li><a href="#" class="dropdown-item">Sobremesas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contato" class="nav-link me-2">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <form class="d-flex" role="search">
+                                <input type="search" class="form-control form-control-sm me-2" placeholder="Buscar" aria-label="Search" required>
+                                <button class="btn btn-dark"><i class="bi bi-search"></i></button>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="bi bi-person-fill"></i>&nbsp;Admin/Cliente
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <main class="container">
+    </header>
+
+    <main class="container mb-5 bg-light">
         <section>
-            <h2 class="alert alert-light text-center">Produtos</h2>
+            <!-- Carrossel -->
+            <div id="carrossel-principal" class="carousel slide mb-4">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carrossel-principal" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carrossel-principal" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carrossel-principal" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="./images/chuleta.png" class="d-block w-50 mx-auto rounded" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Chuleta</h5>
+                        <p class="text-warning">A chuleta, também conhecida como bisteca, é o bife de contrafilé com osso.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./images/cupim.png" class="d-block w-50 mx-auto rounded" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Maminha</h5>
+                        <p class="text-warning">Um corte mais comun, feito para quem está acostumado com o padrão.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="./images/strudel.png" class="d-block w-50 mx-auto rounded" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lasanha</h5>
+                        <p class="text-warning">Uma sobremesa feitas para te proporcionar uma experiência completa</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-principal" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrossel-principal" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </section>
+        <section>
+            <h2 class="alert bg-dark text-white text-center">Produtos</h2>
             <div class="row">
                 <!-- Card Produto -->
                 <div class="col-sm-6 col-md-4 mb-4">
@@ -122,10 +167,64 @@
                     </div>
                 </div>
                 <!-- Final Card Produto -->
+
+                <!-- Card Produto -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card border border-0">
+                        <img src="./images/picanha_sem.png" alt="Picanha ao alho" class="card-img-top">
+                        <div class="card-body bg-dark text-white">
+                            <h3 class="card-title">Picanha</h3>
+                            <p class="card-text text-start">
+                                Esta é a combinação do sabor inconfundível da picanha, com o aroma acentuado do alho. Condimento que casa perfeitamente com esse corte nobre.
+                            </p>
+                            <a href="" class="btn btn-light float-end">
+                                <span class="d-none d-sm-inline">Saiba mais</span>
+                                <i class="bi bi-eye-fill ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Final Card Produto -->
+
+                <!-- Card Produto -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card border border-0">
+                        <img src="./images/chuleta.png" alt="Picanha ao alho" class="card-img-top">
+                        <div class="card-body bg-dark text-white">
+                            <h3 class="card-title">Chuleta</h3>
+                            <p class="card-text text-start">
+                                Esta é a combinação do sabor inconfundível da picanha, com o aroma acentuado do alho. Condimento que casa perfeitamente com esse corte nobre.
+                            </p>
+                            <a href="" class="btn btn-light float-end">
+                                <span class="d-none d-sm-inline">Saiba mais</span>
+                                <i class="bi bi-eye-fill ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Final Card Produto -->
+
+                <!-- Card Produto -->
+                <div class="col-sm-6 col-md-4 mb-4">
+                    <div class="card border border-0">
+                        <img src="./images/costelona.png" alt="Picanha ao alho" class="card-img-top">
+                        <div class="card-body bg-dark text-white">
+                            <h3 class="card-title">Costelona</h3>
+                            <p class="card-text text-start">
+                                Esta é a combinação do sabor inconfundível da picanha, com o aroma acentuado do alho. Condimento que casa perfeitamente com esse corte nobre.
+                            </p>
+                            <a href="" class="btn btn-light float-end">
+                                <span class="d-none d-sm-inline">Saiba mais</span>
+                                <i class="bi bi-eye-fill ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Final Card Produto -->
             </div>
         </section>
     </main>
-    <footer class="container-fluid bg-light text-black p-4" id="contato">
+    <footer class="container bg-light text-black p-4" id="contato">
         <div class="row">
             <!-- Coluna mapa e contato -->
             <div class="col-md-4 mb-4">
@@ -143,10 +242,54 @@
             <!-- Final coluna mapa e contato -->
 
             <!-- Coluna menus do footer -->
-            <div class="col-m4-4 col-sm-6 mb-4">
-
+            <div class="col-md-4 col-sm-6 mb-4">
+                <h4 class="text-center">Links</h4>
+                <ul class="nav flex-column ps-5">
+                    <li class="nav-item"><a href="index.html#home" class="nav-link text-black ps-0">
+                        <i class="bi bi-house-fill"></i> Home</a>
+                    </li>
+                    <li class="nav-item"><a href="index.html#destaques" class="nav-link text-black ps-0">
+                        <i class="bi bi-star-fill"></i> Destaques</a>
+                    </li>
+                    <li class="nav-item"><a href="index.html#produtos" class="nav-link text-black ps-0">
+                        <i class="bi bi-basket-fill"></i> Produtos</a>
+                    </li>
+                    <li class="nav-item"><a href="index.html#contato" class="nav-link text-black ps-0">
+                        <i class="bi bi-envelope-fill"></i> Contato</a>
+                    </li>
+                    <li class="nav-item"><a href="admin/index.html" class="nav-link text-black ps-0">
+                        <i class="bi bi-person-circle"></i> Administração</a>
+                    </li>
+                </ul>
             </div>
             <!-- Final coluna menus do footer -->
+
+            <!-- Coluna formulário contato -->
+             <div class="col-md-4 col-sm-6 mb-4">
+                <h4>Contato</h4>
+                <form method="get" action="index.html">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                        <input type="text" name="nome_contato" placeholder="Digite seu nome" class="form-control" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                        <input type="text" name="email_contato" placeholder="Digite seu email" class="form-control" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-pencil-fill"></i></span>
+                        <textarea name="comentario_contato" rows="4" placeholder="Digite seu comentário" class="form-control" required></textarea>
+                    </div>
+                    <button name="btn_enviar" class="btn btn-danger w-100" type="submit">Enviar <i class="bi bi-send-fill"></i></button>
+                </form>
+             </div>
+             <!-- Final coluna formulário contato -->
+
+             <div class="col-12 text-center border-top border-secondary pt-3 mt-3">
+                <p class="text-black-50">Desenvolvido por Gabriel Cabral Mendes Mariano™ 2025 <br></p>
+                <a href="" target="_blank" class="text-black-50 text-decoration-none">GCMM</a>
+             </div>
+             <!-- Final linha fechamento rodapé -->
         </div>
     </footer>
 </body>
