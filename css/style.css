@@ -2,8 +2,8 @@
 
 .fundo-fixo {
     /* background-color: #f2f2f2;*/
-    background: url(../images/fundo.jpg) no-repeat fixed center;
-    -webkit-background-size: cover; 
+    background: url(../images/fundo.jpg) no-repeat fixed center ;
+    -webkit-background-size: cover;
 }
 
 main {
