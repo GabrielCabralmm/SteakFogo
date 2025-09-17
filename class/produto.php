@@ -88,8 +88,12 @@
             return false;
         }
 
-        public function listar(): array{
-            $cmd = $this->pdo->query("select * from vw_produtos order by id desc");
+        public function listar(int $destaque): array{
+            if ($destaque == 0) {
+                $cmd = $this->pdo->query("select * from vw_produtos order by id desc");
+            } elseif ($destaque == 1){
+                $cmd = $this->pdo->query("select * from vw_produtos where destaque = 1 order by id desc");
+            }
             return $cmd->fetchAll(PDO::FETCH_ASSOC);
         }
 

@@ -23,12 +23,12 @@
         <div class="collapse navbar-collapse" id="menupublico">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active" aria-current="page">
+                    <a href="index.php" class="nav-link active" aria-current="page">
                         <i class="bi bi-house-door-fill"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Destaques</a>
+                    <a href="#destaques" class="nav-link">Destaques</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Produtos</a>

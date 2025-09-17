@@ -2,17 +2,11 @@
 
 .fundo-fixo {
     /* background-color: #f2f2f2;*/
-    background: url(../images/fundo.jpg) no-repeat fixed center ;
+    background: url(../images/fundo.jpg) no-repeat fixed;
     -webkit-background-size: cover;
 }
 
 main {
     padding-top: 80px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
-}
-
-footer {
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgb(0,0,0,0.2);
+    background-color: #303030d7;
 }

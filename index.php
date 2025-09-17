@@ -14,6 +14,12 @@
     <title>Steak & Fogo</title>
 </head>
 <body class="fundo-fixo">
+    <head>
     <?php include 'menu_publico.php'?>
+    </head>
+    <main class="container shadow-lg">
+        <?php include 'carousel.php' ?>
+        <?php include 'destaques.php' ?>
+    </main>
 </body>
 </html>
