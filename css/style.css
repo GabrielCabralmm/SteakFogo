@@ -1,12 +1,5 @@
 @charset "utf8";
 
-.fundo-fixo {
-    /* background-color: #f2f2f2;*/
-    background: url(../images/fundo.jpg) no-repeat fixed;
-    -webkit-background-size: cover;
-}
-
 main {
     padding-top: 80px;
-    background-color: #303030d7;
 }

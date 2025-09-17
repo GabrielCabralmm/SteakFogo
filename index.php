@@ -17,9 +17,14 @@
     <head>
     <?php include 'menu_publico.php'?>
     </head>
-    <main class="container shadow-lg">
+    <main class="container shadow-lg bg-light">
         <?php include 'carousel.php' ?>
+
+        <a name="destaques"></a>
         <?php include 'destaques.php' ?>
+
+        <a name="produtos"></a>
+        <?php include 'produtos_geral.php' ?>
     </main>
 </body>
 </html>

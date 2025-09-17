@@ -1,5 +1,5 @@
 <?php 
-    include "./class/db.php";
+    include_once "./class/db.php";
     $pdo = getConnection();
     $tipo_lista = $pdo->query("select * from tipos");
     $tipos = $tipo_lista->fetchAll();
@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a href="index.html" class="navbar-brand">
+        <a href="index.php" class="navbar-brand">
             <img src="./images/logo/Logo-200-40-Escuro.png" alt="Logotipo Steak & Fogo" width="190px">
         </a>
         <button 
@@ -31,7 +31,7 @@
                     <a href="#destaques" class="nav-link">Destaques</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Produtos</a>
+                    <a href="#produtos" class="nav-link">Produtos</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tipos</a>

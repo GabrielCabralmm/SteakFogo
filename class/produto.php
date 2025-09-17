@@ -97,30 +97,13 @@
             return $cmd->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function buscarPorId(int $id): bool{
-            $sql = "select * from produtos where id = :id";
+        public function buscarPorId(int $id):array{
+            $sql = "select * from vw_produtos where id = :id";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":id", $id);
-            $cmd->bindValue(":tipo_id", $this->tipoId);
-            $cmd->bindValue(":descicao", $this->descricao);
-            $cmd->bindValue(":resumo", $this->resumo);
-            $cmd->bindValue(":valor", $this->valor);
-            $cmd->bindValue(":imagem", $this->imagem);
-            $cmd->bindValue(":destaque", $this->destaque);
             $cmd->execute();
-            if ($cmd->rowCount() > 0) {
-                $dados = $cmd->fetch(PDO::FETCH_ASSOC);
-                $this->id = $dados['id'];
-                $this->tipoId = $dados['tipo_id'];
-                $this->descricao = $dados['descricao'];
-                $this->resumo = $dados['resumo'];
-                $this->valor = $dados['valor'];
-                $this->imagem = $dados['imagem'];
-                $this->destaque = $dados['destaque'];
-                return true;
-            }
-            
-            return false;
+            $dados = $cmd->fetch();
+            return $dados;
         }
 
         public function atualizar(int $idUpdate):bool{
