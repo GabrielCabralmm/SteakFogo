@@ -105,3 +105,6 @@ CREATE VIEW vw_produtos AS
     JOIN tipos t
   WHERE p.tipo_id=t.id;
 COMMIT;
+
+INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
+(3, 'Coca-Cola 220ml', 'Refrescante, icônica e irresistível. A Coca-Cola é o refrigerante clássico que combina perfeitamente com qualquer refeição. Com seu sabor único e borbulhante, ela transforma momentos simples em experiências memoráveis. Sirva gelada e aproveite cada gole!', 2.50, 'cocacola.jpg', 1);
