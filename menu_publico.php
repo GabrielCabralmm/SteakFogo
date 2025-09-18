@@ -45,13 +45,17 @@
                     <a href="#contato" class="nav-link me-2">Contato</a>
                 </li>
                 <li class="nav-item">
-                    <form class="d-flex" role="search">
-                        <input type="search" class="form-control form-control-sm me-2" placeholder="Buscar" aria-label="Search" required>
+                    <form action="produtos_busca.php" method="get" class="d-flex" role="search">
+                        <input type="search"
+                        class="form-control form-control-sm me-2"
+                        placeholder="Buscar" aria-label="Search"
+                        name="buscar"
+                        required>
                         <button class="btn btn-dark"><i class="bi bi-search"></i></button>
                     </form>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="./admin/index.php" class="nav-link">
                         <i class="bi bi-person-fill"></i>&nbsp;Admin/Cliente
                     </a>
                 </li>

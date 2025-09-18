@@ -106,6 +106,25 @@
             return $dados;
         }
 
+        public function buscarPorTipo(int $tipoId):array{
+            $sql = "select * from vw_produtos where tipo_id = :tipo_id";
+            $cmd = $this->pdo->prepare($sql);
+            $cmd->bindValue(":tipo_id", $tipoId);
+            $cmd->execute();
+            $dados = $cmd->fetchAll();
+            return $dados;
+        }
+
+        public function buscarPorString(string $busca):array{
+            $sql = "select * from vw_produtos
+            where descricao like '%$busca%' or resumo like '%$busca%'
+            order by descricao asc";
+            $cmd = $this->pdo->prepare($sql);
+            $cmd->execute();
+            $dados = $cmd->fetchAll();
+            return $dados;
+        }
+
         public function atualizar(int $idUpdate):bool{
             $id = $idUpdate;
 

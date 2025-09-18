@@ -20,9 +20,9 @@
 </head>
 <body class="fundo-fixo">
     <head>
-    <?php include 'menu_publico.php'?>
+        <?php include 'menu_publico.php'?>
     </head>
-    <main class="container shadow-lg bg-light">
+    <main class="container shadow-lg bg-light px-5">
         <h2 class="alert bg-dark text-white text-center">
             <a href="index.php" class="text-decoration-none">
                 <button class="btn btn-danger">
@@ -36,16 +36,22 @@
                 <div class="card border border-0">
                     <img src="./images/<?= $produto['imagem']?>" alt="Picanha ao alho" class="card-img-top">
                     <div class="card-body bg-dark text-white">
-                        <h3 class="card-title"><?= $produto['descricao']?></h3>
+                        <div class="d-flex justify-content-between">
+                            <h3 class="card-title"><?= $produto['descricao']?></h3>
+                            <button class="btn btn-default disabled" role="button" style="cursor: default;">
+                                <?= "R$ ".number_format($produto['valor'], 2, ',', '.') ?>
+                            </button>
+                        </div>
                         <p class="fst-italic"><?= $produto['rotulo']?></p>
-                        <p class="card-text text-start"><?=mb_strimwidth($produto['resumo'], 0, 79,'...')?></p>
-                        <button class="btn btn-default disabled" role="button" style="cursor: default;">
-                            <?= "R$ ".number_format($produto['valor'], 2, ',', '.') ?>
-                        </button>
+                        <p class="card-text text-start"><?=$produto['resumo']?></p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <footer class="container bg-light text-black shadow p-4 mt-5" id="contato">
+        <a name="contato"></a>
+        <?php include 'rodape.php' ?>
+    </footer>
 </body>
 </html>

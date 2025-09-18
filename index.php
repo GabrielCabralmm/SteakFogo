@@ -1,6 +1,3 @@
-<?php 
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,16 +12,21 @@
 </head>
 <body class="fundo-fixo">
     <head>
-    <?php include 'menu_publico.php'?>
+        <?php include 'menu_publico.php'?>
     </head>
-    <main class="container shadow-lg bg-light">
+    <main class="container shadow bg-light px-5">
         <?php include 'carousel.php' ?>
 
         <a name="destaques"></a>
-        <?php include 'destaques.php' ?>
+        <?php include_once 'destaques.php' ?>
 
         <a name="produtos"></a>
-        <?php include 'produtos_geral.php' ?>
+        <?php include_once 'produtos_geral.php' ?>
+
     </main>
+    <footer class="container shadow bg-light text-black p-4 mt-5" id="contato">
+        <a name="contato"></a>
+        <?php include 'rodape.php' ?>
+    </footer>
 </body>
 </html>
