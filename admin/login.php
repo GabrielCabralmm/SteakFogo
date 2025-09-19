@@ -1,3 +1,28 @@
+<?php 
+    require_once '../class/usuario.php';
+    if ($_POST) {
+        $login = $_POST['login'];
+        $senha = $_POST['senha'];
+
+        $user = new Usuario();
+        $usuarioLogado = $user->efetuarLogin($login, $senha);
+        if (count($usuarioLogado) > 0) {
+            if (!isset($_SESSION)) {
+                session_name('chulettaaa');
+                session_start();
+            }
+            $_SESSION['login_usuario'] = $usuarioLogado['login'];
+            $_SESSION['nivel_usuario'] = $usuarioLogado['nivel'];
+            $_SESSION['nome_da_sessao'] = session_name();
+            if ($usuarioLogado['nivel']=="adm") {
+                echo "<script>window.open('index.php', '_self')</script>";
+            } elseif ($usuarioLogado['nivel']=="cli") {
+                echo "<script>window.open('../cliente/index.php', '_self')</script>";
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,21 +42,21 @@
             <article>
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-                        <h1 class="text-info text-center mb-4">Faça seu login</h1>
+                        <h1 class="text-dark text-center mb-4">Faça seu login</h1>
                         <div class="card shadow-lg">
                             <div class="card-body">
-                                <p class="text-info text-center mb-4" role="alert">
+                                <p class="text-center mb-4" role="alert">
                                 <i class="bi bi-people-fill display-1"></i>
                                 </p>
                                 
-                                <div class="alert alert-info" role="alert">
+                                <div class="alert alert-light" role="alert">
                                     <form action="login.php" name="form_login" id="form_login" method="POST" enctype="multipart/form-data">
                                         <!-- Login -->
                                         <div class="mb-3">
                                         <label for="login" class="form-label">Login:</label>
                                         <div class="input-group">
                                         <span class="input-group-text">
-                                        <i class="bi bi-person-fill text-info"></i>
+                                        <i class="bi bi-person-fill text-dark"></i>
                                         </span>
                                         <input type="text"
                                         name="login"
@@ -46,7 +71,7 @@
                                         <label for="senha" class="form-label">Senha:</label>
                                         <div class="input-group">
                                         <span class="input-group-text">
-                                        <i class="bi bi-lock-fill text-info"></i>
+                                        <i class="bi bi-lock-fill text-dark"></i>
                                         </span>
                                         <input type="password"
                                         name="senha"
@@ -58,7 +83,7 @@
                                 </div>
                                                 <!-- Botão -->
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Entrar</button>
+                                    <button type="submit" class="btn btn-warning">Entrar</button>
                                 </div>
                             </form>
                             </div>
