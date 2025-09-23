@@ -19,6 +19,7 @@
         $produto->setResumo($_POST['resumo']);
         $produto->setValor($_POST['valor']);
         $produto->setImagem($rand.$nome_img);
+   
         if ($produto->inserir()){
             header('location: produtos_lista.php');
         } else {
@@ -136,13 +137,38 @@
                             <div class="d-grid">
                                 <input type="submit" name="enviar" id="enviar" class="btn btn-danger w-100" value="Cadastrar">
                             </div>
-
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </main>
+
+    <script>
+        document.getElementById("imagemfile").onchange = function(){
+            var reader = new FileReader();
+            if (this.files[0].size>512000) {
+                alert("A imagem dever ter no máximo 500KB");
+                $("#imagem").attr("src", "blank");
+                $("#imagem").hide();
+                $("#imagem").wrap('<form>').closest('<form>').get[0].reset();
+                $("#imagem").unwrap();
+                return false;               
+            }
+            if (this.files[0].type.indexOf("image")==-1) {
+                alert("Formato inválido! Escolha uma imagem.")
+                $("#imagem").attr("src", "blank");
+                $("#imagem").hide();
+                $("#imagem").wrap('<form>').closest('<form>').get[0].reset();
+                $("#imagem").unwrap();
+                return false;
+            }
+            reader.onload = function(e){
+                document.getElementById("imagem").src = e.target.result
+                $("#imagem").show();
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    </script>
 </body>
 </html>

@@ -50,7 +50,7 @@
         }
 
         public function setValor(float $valor){
-            $this->resumo = $valor;
+            $this->valor = $valor;
         }
 
         public function getImagem(){
@@ -58,7 +58,7 @@
         }
 
         public function setImagem(string $imagem){
-            $this->resumo = $imagem;
+            $this->imagem = $imagem;
         }
 
         public function getDestaque(){
@@ -71,11 +71,12 @@
 
         // Funções
         public function inserir():bool {
+
             $sql = "insert into produtos (tipo_id, descricao, resumo, valor, imagem, destaque)
                     values (:tipo_id, :descricao, :resumo, :valor, :imagem, :destaque)";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":tipo_id", $this->tipoId);
-            $cmd->bindValue(":descicao", $this->descricao);
+            $cmd->bindValue(":descricao", $this->descricao);
             $cmd->bindValue(":resumo", $this->resumo);
             $cmd->bindValue(":valor", $this->valor);
             $cmd->bindValue(":imagem", $this->imagem);
@@ -147,8 +148,7 @@
         }
 
         public function excluir(int $idExcluir):bool{
-            $id = $idExcluir;
-            
+            $this->id = $idExcluir;
             if (!$this->id) return false;
 
             $sql = "delete from produtos where id = :id";
