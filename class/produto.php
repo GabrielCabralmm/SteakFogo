@@ -81,7 +81,6 @@
             $cmd->bindValue(":valor", $this->valor);
             $cmd->bindValue(":imagem", $this->imagem);
             $cmd->bindValue(":destaque", $this->destaque);
-            $cmd->execute();
             if ($cmd->execute()) {
                 $this->id = $this->pdo->lastInsertId();
                 return true;
@@ -127,23 +126,25 @@
         }
 
         public function atualizar(int $idUpdate):bool{
-            $id = $idUpdate;
-
-            if (!$this->id) return false;
-
-            $sql = "update produtos set
-                    tipo_id = :tipo_id, descricao = :descricao, resumo = :resumo,
-                    valor = :valor, imagem = :imagem, destaque = :destaque
-                    where id = :id";
+            $this->id = $idUpdate;
+            if(!$this->id) return false;
+    
+            $sql = "UPDATE produtos SET 
+                tipo_id = :tipo_id,
+                descricao = :descricao, 
+                resumo = :resumo,
+                valor = :valor,
+                imagem = :imagem,
+                destaque = ".($this->destaque==true?1:0)."
+                WHERE id = :id";
             $cmd = $this->pdo->prepare($sql);
-            $cmd->bindValue(":tipo_id", $this->tipoId);
-            $cmd->bindValue(":descicao", $this->descricao);
+            $cmd->bindValue(":tipo_id", $this->tipoId); // (C#) cmd.Paramenters.AddWithValue("splogin", Login);
+            $cmd->bindValue(":descricao", $this->descricao);
             $cmd->bindValue(":resumo", $this->resumo);
             $cmd->bindValue(":valor", $this->valor);
             $cmd->bindValue(":imagem", $this->imagem);
-            $cmd->bindValue(":destaque", $this->destaque);
+            //$cmd->bindValue(":destaque",$this->destaque==true?1:0);
             $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
-
             return $cmd->execute();
         }
 

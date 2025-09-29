@@ -46,7 +46,8 @@ CREATE TABLE `tipos` (
 -- Despejando dados para a tabela `tipos`
 INSERT INTO `tipos` (`id`, `sigla`, `rotulo`) VALUES
 (1, 'chu', 'Churrasco'),
-(2, 'sob', 'Sobremesa');
+(2, 'sob', 'Sobremesa'),
+(3, 'beb', 'Bebida');
  
 -- Índices de tabela `tipos`
 ALTER TABLE `tipos`
@@ -73,7 +74,9 @@ INSERT INTO `usuarios`
     (3, 'maria', md5('789'), 'com'),
     (4, 'well', md5('1234'), 'adm'),
     (5, 'gabriel', md5('202720'), 'amd');
- 
+
+update usuarios set nivel = 'adm' where id = 5;
+
 -- Índices de tabela `tipos`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
@@ -108,3 +111,7 @@ COMMIT;
 
 INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
 (3, 'Coca-Cola 220ml', 'Refrescante, icônica e irresistível. A Coca-Cola é o refrigerante clássico que combina perfeitamente com qualquer refeição. Com seu sabor único e borbulhante, ela transforma momentos simples em experiências memoráveis. Sirva gelada e aproveite cada gole!', 2.50, 'cocacola.jpg', 1);
+
+select * from tipos;
+
+select * from vw_produtos;
