@@ -1,4 +1,11 @@
         <div class="row">
+            <div class="bg-danger p-1 mb-5 mt-2 rounded-4">
+                <h3 class="text-white text-center">Reservas</h3>
+                <h5 class="text-warning text-center">Resevas de 30% de desconto no valor do rodízio e 15% de desconto em todas as bebidas, para reservas com mais de 5 pessoas!!!</h5>
+                <div class="d-grid gap-2 col-4 mx-auto mt-4 mb-2">
+                    <a href="./reserva.php" class="btn btn-outline-light btn-lg">Realizar reserva</a>
+                </div>
+            </div>
             <!-- Coluna mapa e contato -->
             <div class="col-md-4 mb-4">
                 <img src="./images/logo/Logo-200-40-Claro.png" alt="Logo pequeno" class="mb-2" width="150px">
