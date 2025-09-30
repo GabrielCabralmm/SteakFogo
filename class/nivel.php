@@ -1,11 +1,11 @@
 <?php 
     include_once 'db.php';
 
-    class Tipo {
+    class Nivel {
         // Atributos
         private $id;
+        private $nivel;
         private $sigla;
-        private $rotulo;
         private $pdo;
 
         public function __construct(){
@@ -25,21 +25,21 @@
             $this->sigla = $sigla;
         }
 
-        public function getRotulo(){
-            return $this->rotulo;
+        public function getNivel(){
+            return $this->nivel;
         }
 
-        public function setRotulo(int $rotulo){
-            $this->rotulo = $rotulo;
+        public function setNivel(int $nivel){
+            $this->nivel = $nivel;
         }
 
         // Funções
         public function inserir():bool {
-            $sql = "insert into tipos (sigla, rotulo)
-                    values (:sigla, :rotulo)";
+            $sql = "insert into niveis (sigla, nivel)
+                    values (:sigla, :nivel)";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":sigla", $this->sigla);
-            $cmd->bindValue(":rotulo", $this->rotulo);
+            $cmd->bindValue(":nivel", $this->nivel);
             $cmd->execute();
             if ($cmd->execute()) {
                 $this->id = $this->pdo->lastInsertId();
@@ -49,12 +49,12 @@
         }
 
         public function listar(): array{
-            $cmd = $this->pdo->query("select * from tipos order by id desc");
+            $cmd = $this->pdo->query("select * from niveis order by id desc");
             return $cmd->fetchAll(PDO::FETCH_ASSOC);
         }
 
         public function buscarPorId(int $id):array{
-            $sql = "select * from tipos where id = :id";
+            $sql = "select * from niveis where id = :id";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":id", $id);
             $cmd->execute();
@@ -67,10 +67,10 @@
             if(!$this->id) return false;
 
             $sql = "update produtos set
-                    sigla = :sigla, rotulo = :rotulo where id = :id";
+                    sigla = :sigla, nivel = :nivel where id = :id";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":sigla", $this->sigla);
-            $cmd->bindValue(":rotulo", $this->rotulo);
+            $cmd->bindValue(":nivel", $this->nivel);
             $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
 
             return $cmd->execute();
@@ -80,7 +80,7 @@
             $this->id = $idExcluir;
             if(!$this->id) return false;
 
-            $sql = "delete from tipos where id = :id";
+            $sql = "delete from niveis where id = :id";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
 

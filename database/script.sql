@@ -57,25 +57,38 @@ ALTER TABLE `tipos`
 ALTER TABLE `tipos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
  
--- Estrutura para tabela `tipos`
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `login` varchar(30) NOT NULL,
-  `senha` varchar(32) NOT NULL,
-  `nivel` char(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
- 
+create table niveis(
+id int auto_increment,
+nivel varchar(30) not null,
+sigla char(3) not null,
+primary key (id)
+);
+
+insert into niveis (id, nivel, sigla) values
+(1, "Administrador", "ADM"),
+(2, "Comun", "COM");
+
+create table usuarios(
+id int auto_increment,
+login varchar(30) not null,
+email varchar(60) not null,
+id_nivel int not null,
+senha varchar(32) not null,
+primary key (id),
+foreign key (id_nivel) references niveis (id)
+);
+
+drop table usuarios;
+
 -- Inserindo Dados na Tabela `usuarios'
 INSERT INTO `usuarios`
-  (`id`, `login`, `senha`, `nivel`)
+  (`id`, `login`, `email`, `id_nivel`, `senha`)
   VALUES
-    (1, 'senac', md5('1234'), 'adm'),
-    (2, 'joao', md5('456'), 'cli'),
-    (3, 'maria', md5('789'), 'com'),
-    (4, 'well', md5('1234'), 'adm'),
-    (5, 'gabriel', md5('202720'), 'amd');
-
-update usuarios set nivel = 'adm' where id = 5;
+    (1, 'senac', 'senac@gmail.com', 2, md5('1234')),
+    (2, 'joao', 'joao@gmail.com', 2, md5('456')),
+    (3, 'maria', 'maria@gmail.com', 2, md5('789')),
+    (4, 'well', 'well@gmail.com', 1, md5('1234')),
+    (5, 'gabriel', 'gabriel@gmail.com', 1, md5('202720'));
 
 -- Índices de tabela `tipos`
 ALTER TABLE `usuarios`
@@ -112,6 +125,50 @@ COMMIT;
 INSERT INTO `produtos` (`tipo_id`, `descricao`, `resumo`, `valor`, `imagem`, `destaque`) VALUES
 (3, 'Coca-Cola 220ml', 'Refrescante, icônica e irresistível. A Coca-Cola é o refrigerante clássico que combina perfeitamente com qualquer refeição. Com seu sabor único e borbulhante, ela transforma momentos simples em experiências memoráveis. Sirva gelada e aproveite cada gole!', 2.50, 'cocacola.jpg', 1);
 
-select * from tipos;
+create table clientes (
+id int auto_increment,
+nome varchar(50) not null,
+cpf varchar(14) not null,
+email varchar(70) not null,
+telefone varchar(13) not null,
+senha varchar(32) not null,
+primary key (id)
+);
 
-select * from vw_produtos;
+create table reservas (
+id int auto_increment,
+id_cliente int not null,
+data_reserva date not null,
+horario time not null,
+qtd_pessoas int not null,
+motivo varchar(30) not null,
+status char(1) not null default "A",
+codigo_reserva varchar(12) not null,
+data_criacao datetime default current_timestamp,
+data_atualizacao datetime,
+primary key (id),
+foreign key (id_cliente) references clientes (id)
+);
+
+create table mesas(
+id int auto_increment,
+numero int(2) not null,
+capacidade int(2) not null,
+primary key (id)
+);
+
+create table reserva_mesa(
+id_reserva int not null,
+id_mesa int not null,
+foreign key (id_reserva) references reservas (id),
+foreign key (id_mesa) references mesas (id)
+);
+
+create table negativas(
+id int auto_increment,
+id_reserva int not null,
+motivo_negativa varchar(100),
+data_registro datetime default current_timestamp,
+primary key (id),
+foreign key (id_reserva) references reservas (id)
+);

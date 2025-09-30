@@ -5,8 +5,9 @@
         // Atributos
         private $id;
         private $login;
+        private $email;
+        private $id_nivel;
         private $senha;
-        private $nivel;
         private $pdo;
 
         public function __construct(){
@@ -26,6 +27,22 @@
             $this->login = $login;
         }
 
+        public function getEmail(){
+            return $this->email;
+        }
+
+        public function setEmail(string $email){
+            $this->email = $email;
+        }
+
+        public function getId_nivel(){
+            return $this->id_nivel;
+        }
+
+        public function setId_nivel(int $id_nivel){
+            $this->id_nivel = $id_nivel;
+        }
+
         public function getSenha(){
             return $this->senha;
         }
@@ -34,22 +51,15 @@
             $this->senha = $senha;
         }
 
-        public function getNivel(){
-            return $this->nivel;
-        }
-
-        public function setNivel(string $nivel){
-            $this->nivel = $nivel;
-        }
-
         // Funções
         public function inserir():bool {
-            $sql = "insert into usuarios (login, senha, nivel)
-                    values (:login, md5(:senha), :nivel)";
+            $sql = "insert into usuarios (login, email, id_nivel, senha)
+                    values (:login, :email, :id_nivel, md5(:senha))";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":login", $this->login);
+            $cmd->bindValue(":email", $this->email);
             $cmd->bindValue(":senha", $this->senha);
-            $cmd->bindValue(":nivel", $this->nivel);
+            $cmd->bindValue(":id_nivel", $this->id_nivel);
             $cmd->execute();
             if ($cmd->execute()) {
                 $this->id = $this->pdo->lastInsertId();
@@ -72,8 +82,9 @@
                 $dados = $cmd->fetch(PDO::FETCH_ASSOC);
                 $this->id = $dados['id'];
                 $this->login = $dados['login'];
+                $this->email = $dados['email'];
+                $this->id_nivel = $dados['id_id_nivel'];
                 $this->senha = $dados['senha'];
-                $this->nivel = $dados['nivel'];
                 return true;
             }
             
@@ -92,24 +103,21 @@
 
 
         public function atualizar(int $idUpdate):bool{
-            $id = $idUpdate;
-
-            if (!$this->id) return false;
+            $this->id = $idUpdate;
+            if(!$this->id) return false;
 
             $sql = "update usuarios set
-                    login = :login, nivel = :nivel where id = :id";
+                    login = :login, id_nivel = :id_nivel where id = :id";
             $cmd = $this->pdo->prepare($sql);
             $cmd->bindValue(":login", $this->login);
-            $cmd->bindValue(":nivel", $this->nivel);
+            $cmd->bindValue(":id_nivel", $this->id_nivel);
             $cmd->bindValue(":id", $this->id, PDO::PARAM_INT);
-
             return $cmd->execute();
         }
 
         public function alterarSenha(int $idUpdate, string $novaSenha):bool{
-            $id = $idUpdate;
-
-            if (!$this->id) return false;
+            $this->id = $idUpdate;
+            if(!$this->id) return false;
 
             $sql = "update usuarios set senha = md5(:senha) where id = :id";
             $cmd = $this->pdo->prepare($sql);
@@ -120,9 +128,8 @@
         }
 
         public function excluir(int $idExcluir):bool{
-            $id = $idExcluir;
-            
-            if (!$this->id) return false;
+            $this->id = $idExcluir;
+            if(!$this->id) return false;
 
             $sql = "delete from usuarios where id = :id";
             $cmd = $this->pdo->prepare($sql);
