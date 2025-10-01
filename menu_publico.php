@@ -42,7 +42,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#contato" class="nav-link me-2">Contato</a>
+                    <a href="#contato" class="nav-link">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a href="./reservas.php" class="nav-link me-2 text-warning py-1 px-2 mt-1">Reservas</a>
                 </li>
                 <li class="nav-item">
                     <form action="produtos_busca.php" method="get" class="d-flex" role="search">

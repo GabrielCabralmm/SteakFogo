@@ -3,7 +3,7 @@
                 <h3 class="text-white text-center">Reservas</h3>
                 <h5 class="text-warning text-center">Resevas de 30% de desconto no valor do rodízio e 15% de desconto em todas as bebidas, para reservas com mais de 5 pessoas!!!</h5>
                 <div class="d-grid gap-2 col-4 mx-auto mt-4 mb-2">
-                    <a href="./reserva.php" class="btn btn-outline-light btn-lg">Realizar reserva</a>
+                    <a href="./realizar_reserva.php" class="btn btn-outline-light btn-lg">Realizar reserva</a>
                 </div>
             </div>
             <!-- Coluna mapa e contato -->

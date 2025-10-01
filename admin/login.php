@@ -12,11 +12,11 @@
                 session_start();
             }
             $_SESSION['login_usuario'] = $usuarioLogado['login'];
-            $_SESSION['nivel_usuario'] = $usuarioLogado['nivel'];
+            $_SESSION['nivel_usuario'] = $usuarioLogado['id_nivel'];
             $_SESSION['nome_da_sessao'] = session_name();
-            if ($usuarioLogado['nivel']=="adm") {
+            if ($usuarioLogado['id_nivel']=="adm") {
                 echo "<script>window.open('index.php', '_self')</script>";
-            } elseif ($usuarioLogado['nivel']=="cli") {
+            } elseif ($usuarioLogado['id_nivel']!="1") {
                 echo "<script>window.open('../cliente/index.php', '_self')</script>";
             }
         }
