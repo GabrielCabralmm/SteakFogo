@@ -4,9 +4,9 @@
  
     <!-- ADM PRODUTOS -->
     <div class="col-sm-6 col-md-4">
-      <div class="card border-danger h-100 text-center">
+      <div class="card border-danger text-center">
         <div class="card-body">
-          <img src="../images/icones/icone_produtos.png" alt="Produtos" class="mb-3" style="max-height:80px;">
+          <i class="bi bi-bag-fill fs-1 text-danger"></i>
           <h5 class="card-title text-danger">PRODUTOS</h5>
           <div class="d-grid gap-2">
             <a href="produtos_lista.php" class="btn btn-danger">LISTAR</a>
@@ -19,9 +19,9 @@
  
     <!-- ADM TIPOS -->
     <div class="col-sm-6 col-md-4">
-      <div class="card border-warning h-100 text-center">
+      <div class="card border-warning text-center">
         <div class="card-body">
-          <img src="../images/icones/icone_tipos.png" alt="Tipos" class="mb-3" style="max-height:80px;">
+          <i class="bi bi-people-fill fs-1 text-warning"></i>
           <h5 class="card-title text-warning">TIPOS</h5>
           <div class="d-grid gap-2">
             <a href="tipos_lista.php" class="btn btn-warning">LISTAR</a>
@@ -34,9 +34,9 @@
  
     <!-- ADM USUÁRIOS -->
     <div class="col-sm-6 col-md-4">
-      <div class="card border-info h-100 text-center">
+      <div class="card border-info text-center">
         <div class="card-body">
-          <img src="../images/icones/icone_user.png" alt="Usuários" class="mb-3" style="max-height:80px;">
+          <i class="bi bi-people-fill fs-1 text-info"></i>
           <h5 class="card-title text-info">USUÁRIOS</h5>
           <div class="d-grid gap-2">
             <a href="usuarios_lista.php" class="btn btn-info">LISTAR</a>
@@ -46,6 +46,21 @@
       </div>
     </div>
     <!-- fecha ADM USUÁRIOS -->
+
+    <!-- ADM RESERVAS -->
+    <div class="col-sm-6 col-md-4">
+      <div class="card border-primary text-center">
+        <div class="card-body">
+          <i class="bi bi-calendar-fill fs-1 text-primary"></i>
+          <h5 class="card-title text-primary">RESERVAS</h5>
+          <div class="d-grid gap-2">
+            <a href="reservas_lista.php" class="btn btn-primary">LISTAR</a>
+            <a href="reservas_pedidos.php" class="btn btn-primary">PEDIDOS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fecha ADM RESERVAS -->
  
   </div><!-- fecha row -->
 </main>

@@ -1,3 +1,5 @@
+drop database tdszuphpdb01;
+
 CREATE DATABASE
   IF NOT EXISTS `tdszuphpdb01`
     DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -78,8 +80,6 @@ primary key (id),
 foreign key (id_nivel) references niveis (id)
 );
 
-drop table usuarios;
-
 -- Inserindo Dados na Tabela `usuarios'
 INSERT INTO `usuarios`
   (`id`, `login`, `email`, `id_nivel`, `senha`)
@@ -89,15 +89,6 @@ INSERT INTO `usuarios`
     (3, 'maria', 'maria@gmail.com', 2, md5('789')),
     (4, 'well', 'well@gmail.com', 1, md5('1234')),
     (5, 'gabriel', 'gabriel@gmail.com', 1, md5('202720'));
-
--- Índices de tabela `tipos`
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `login_uniq`(`login`);
- 
--- AUTO_INCREMENT de tabela `tipos`
-ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
  
 -- Chave estrangeira
 ALTER TABLE `produtos`
@@ -135,6 +126,11 @@ senha varchar(32) not null,
 primary key (id)
 );
 
+insert into clientes (nome, cpf, email, telefone, senha) values
+("Gabriel Cabral", "525.414.068-27", "gabriel.cmmariano@gmail.com", "11 94718-1718", md5("202720"));
+
+select * from clientes;
+
 create table reservas (
 id int auto_increment,
 id_cliente int not null,
@@ -142,7 +138,7 @@ data_reserva date not null,
 horario time not null,
 qtd_pessoas int not null,
 motivo varchar(30) not null,
-status char(1) not null default "A",
+status char(1) not null default "P",
 codigo_reserva varchar(12) not null,
 data_criacao datetime default current_timestamp,
 data_atualizacao datetime,
@@ -150,12 +146,26 @@ primary key (id),
 foreign key (id_cliente) references clientes (id)
 );
 
+insert into reservas (id_cliente, data_reserva, horario, qtd_pessoas, motivo, status, codigo_reserva, data_criacao) values
+(1, now(), '12:00:00', 2, "Aniversário", default, "525112345", default);
+
 create table mesas(
 id int auto_increment,
 numero int(2) not null,
 capacidade int(2) not null,
 primary key (id)
 );
+
+insert into mesas (numero, capacidade) values
+(1, 2),
+(2, 2),
+(3, 2),
+(4, 4),
+(5, 4),
+(6, 4),
+(7, 8),
+(8, 8),
+(9, 8);
 
 create table reserva_mesa(
 id_reserva int not null,
@@ -172,3 +182,40 @@ data_registro datetime default current_timestamp,
 primary key (id),
 foreign key (id_reserva) references reservas (id)
 );
+
+create view vw_reservas_negadas as
+select r.id,
+	r.codigo_reserva,
+	c.nome,
+    r.data_reserva,
+    r.horario,
+    r.motivo,
+    r.data_criacao,
+    n.motivo_negativa,
+    n.data_registro
+from clientes c inner join  reservas r on r.id_cliente = c.id
+inner join negativas n on n.id_reserva = r.id;
+
+create view vw_reservas as
+select r.id,
+	r.codigo_reserva,
+	c.nome,
+    r.data_reserva,
+    r.horario,
+    r.motivo,
+    r.data_criacao,
+    r.status
+from clientes c inner join  reservas r on r.id_cliente = c.id;
+
+create view vw_mesa_reserva as
+select r.id,
+	r.codigo_reserva,
+    c.nome,
+    r.data_reserva,
+    r.horario,
+    r.motivo,
+    r.qtd_pessoas,
+    m.numero as mesa
+from clientes c inner join  reservas r on r.id_cliente = c.id
+inner join reserva_mesa rm on rm.id_reserva = r.id
+inner join mesas m on rm.id_mesa = m.id;
