@@ -18,7 +18,7 @@
         <h2 class="alert bg-dark text-white text-center mb-3">Reservas</h2>
         <div class="d-flex flex-row justify-content-between">
         <div class="w-75 mb-3">
-            <form class="d-flex flex-column mx-auto border border-light-subtle p-3 rounded">
+            <form method="post" class="d-flex flex-column mx-auto border border-light-subtle p-3 rounded">
                 <div class="d-flex flex-column mx-auto w-75">
                     <div class="mb-3">
                         <label class="form-label">Nome completo:</label>
