@@ -21,7 +21,7 @@
     <div class="col-sm-6 col-md-4">
       <div class="card border-warning text-center">
         <div class="card-body">
-          <i class="bi bi-people-fill fs-1 text-warning"></i>
+          <i class="bi bi-list-task fs-1 text-warning"></i>
           <h5 class="card-title text-warning">TIPOS</h5>
           <div class="d-grid gap-2">
             <a href="tipos_lista.php" class="btn btn-warning">LISTAR</a>

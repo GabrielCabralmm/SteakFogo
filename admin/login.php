@@ -14,7 +14,7 @@
             $_SESSION['login_usuario'] = $usuarioLogado['login'];
             $_SESSION['nivel_usuario'] = $usuarioLogado['id_nivel'];
             $_SESSION['nome_da_sessao'] = session_name();
-            if ($usuarioLogado['id_nivel']=="adm") {
+            if ($usuarioLogado['id_nivel']=="1") {
                 echo "<script>window.open('index.php', '_self')</script>";
             } elseif ($usuarioLogado['id_nivel']!="1") {
                 echo "<script>window.open('../cliente/index.php', '_self')</script>";

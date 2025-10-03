@@ -2,8 +2,6 @@
     session_name('chulettaaa');
     session_start();
 
-    // $_SESSION['login_usuario'] = "Gabriel";
-    // $_SESSION['nome_da_sessao'] = 'chulettaaa';
 
     if (!isset($_SESSION['login_usuario'])) {
         header('location: login.php');
